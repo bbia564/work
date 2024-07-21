@@ -31,7 +31,7 @@ class WorkTabPage extends GetView<WorkTabLogic> {
         BottomNavigationBarItem(
           icon: Icon(Icons.home_filled,color: Colors.grey.withOpacity(0.6)),
           activeIcon:Icon(Icons.home_filled,color: primaryColor),
-          label: 'Work summary',
+          label: 'Summary',
         ),
         BottomNavigationBarItem(
           icon: Icon(Icons.calendar_month_rounded,color: Colors.grey.withOpacity(0.6)),

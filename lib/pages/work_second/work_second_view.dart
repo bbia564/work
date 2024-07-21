@@ -9,7 +9,7 @@ import 'work_second_logic.dart';
 
 class WorkSecondPage extends GetView<WorkSecondLogic> {
   Widget _topItem(int index) {
-    final titles = ['''Today's Agenda''','''Week's Agenda''', '''Month's Agenda'''];
+    final titles = ['''Today''','''Week''', '''Month'''];
     return <Widget>[
       Text(
         titles[index],

@@ -1,8 +1,20 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:work_summary/db_work/db_work.dart';
+import 'package:work_summary/pages/acs/fod.dart';
+import 'package:work_summary/pages/work_first/work_first_binding.dart';
+import 'package:work_summary/pages/work_first/work_first_details/work_first_details_binding.dart';
+import 'package:work_summary/pages/work_first/work_first_details/work_first_details_view.dart';
+import 'package:work_summary/pages/work_first/work_first_view.dart';
+import 'package:work_summary/pages/work_second/work_second_binding.dart';
+import 'package:work_summary/pages/work_second/work_second_view.dart';
+import 'package:work_summary/pages/work_tab/work_tab_binding.dart';
+import 'package:work_summary/pages/work_tab/work_tab_view.dart';
+import 'package:work_summary/pages/work_third/work_third_binding.dart';
+import 'package:work_summary/pages/work_third/work_third_view.dart';
+import 'package:work_summary/pages/wr/binding.dart';
+import 'package:work_summary/pages/wr/view.dart';
 import 'package:work_summary/router/work_names.dart';
-import 'package:work_summary/router/work_pages.dart';
 
 Color primaryColor = const Color(0xff59c2b3);
 Color bgColor = const Color(0xfff4f6fa);
@@ -20,8 +32,8 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
-      getPages: WorkPages.list,
-      initialRoute: WorkNames.workTab,
+      getPages: Pages,
+      initialRoute: '/',
       theme: ThemeData(
         useMaterial3: true,
         primaryColor: primaryColor,
@@ -72,3 +84,13 @@ class MyApp extends StatelessWidget {
     );
   }
 }
+
+List<GetPage<dynamic>> Pages = [
+  GetPage(name: '/', page: () => const WRPage(),binding: WRBinding()),
+  GetPage(name: WorkNames.workTab, page: () => WorkTabPage(), binding: WorkTabBinding()),
+  GetPage(name: WorkNames.workFirst, page: () => WorkFirstPage(), binding: WorkFirstBinding()),
+  GetPage(name: WorkNames.workAcs, page: () => const AcsPage()),
+  GetPage(name: WorkNames.workSecond, page: () => WorkSecondPage(), binding: WorkSecondBinding()),
+  GetPage(name: WorkNames.workThird, page: () => WorkThirdPage(), binding: WorkThirdBinding()),
+  GetPage(name: WorkNames.workFirstDetails, page: () => WorkFirstDetailsPage(),binding: WorkFirstDetailsBinding()),
+];

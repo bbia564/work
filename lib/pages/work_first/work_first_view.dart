@@ -8,7 +8,7 @@ import 'work_first_logic.dart';
 
 class WorkFirstPage extends GetView<WorkFirstLogic> {
   Widget _topItem(int index) {
-    final titles = ['Today summary','Week summary', 'Month summary'];
+    final titles = ['Today','Week', 'Month'];
     return <Widget>[
       Text(
         titles[index],

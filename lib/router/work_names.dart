@@ -4,4 +4,5 @@ class WorkNames {
   static const String workThird = '/work_third';
   static const String workTab = '/work_tab';
   static const String workFirstDetails = '/work_first_details';
+  static const String workAcs = '/acs';
 }

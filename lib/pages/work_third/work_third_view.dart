@@ -9,30 +9,23 @@ class WorkThirdPage extends GetView<WorkThirdLogic> {
   Widget _workSetItem(int index, BuildContext context) {
     final titles = [
       'Clean all data',
-      'Privacy agreement',
-      'About app'
+      'Version'
     ];
     return Container(
       color: Colors.transparent,
       height: 40,
       child: <Widget>[
         Text(titles[index]),
-        const Icon(
+        index == 0 ? const Icon(
           Icons.keyboard_arrow_right,
           size: 20,
           color: Colors.grey,
-        )
+        ) : Text('1.0.0')
       ].toRow(mainAxisAlignment: MainAxisAlignment.spaceBetween),
     ).gestures(onTap: () {
       switch (index) {
         case 0:
           controller.cleanWorkData();
-          break;
-        case 1:
-          controller.aboutWorkPrivacy(context);
-          break;
-        case 2:
-          controller.aboutWorkAPP(context);
           break;
       }
     });
@@ -56,7 +49,6 @@ class WorkThirdPage extends GetView<WorkThirdLogic> {
                   child: <Widget>[
                     _workSetItem(0, context),
                     _workSetItem(1, context),
-                    _workSetItem(2, context)
                   ].toColumn(
                       separator: Divider(
                         height: 15,
