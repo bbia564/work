@@ -12,7 +12,7 @@ class WRPage extends GetView<PageLogic> {
       body: Center(
         child: Obx(
           () => controller.beahan.value
-              ? const CircularProgressIndicator(color: Colors.teal,)
+              ? const CircularProgressIndicator(color: Colors.black,)
               : buildError(),
         ),
       ),
