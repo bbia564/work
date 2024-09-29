@@ -9,7 +9,7 @@ import 'work_second_logic.dart';
 
 class WorkSecondPage extends GetView<WorkSecondLogic> {
   Widget _topItem(int index) {
-    final titles = ['''Today''','''Week''', '''Month'''];
+    final titles = ['''Today''','''Week''', '''Month''','''Year'''];
     return <Widget>[
       Text(
         titles[index],
@@ -58,7 +58,8 @@ class WorkSecondPage extends GetView<WorkSecondLogic> {
           child: <Widget>[
             Expanded(child: _topItem(0)),
             Expanded(child: _topItem(1)),
-            Expanded(child: _topItem(2))
+            Expanded(child: _topItem(2)),
+            Expanded(child: _topItem(3))
           ].toRow(),
         ).decorated(color: Colors.white),
         const SizedBox(

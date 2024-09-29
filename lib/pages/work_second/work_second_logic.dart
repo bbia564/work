@@ -13,7 +13,7 @@ import 'package:work_summary/pages/work_first/work_text_field.dart';
 class WorkSecondLogic extends GetxController {
   DBWork dbWork = Get.find<DBWork>();
 
-  var threeNumList = [0, 0, 0];
+  var threeNumList = [0, 0, 0, 0];
 
   var list = <WorkEntity>[].obs;
 
@@ -45,6 +45,17 @@ class WorkSecondLogic extends GetxController {
         .toList();
   }
 
+  List<WorkEntity> getThisYearEntities(List<WorkEntity> workEntities) {
+    DateTime now = DateTime.now();
+    DateTime startOfMonth = DateTime(now.year, now.year, 1);
+    DateTime endOfMonth = DateTime(now.year, now.year + 1, 1);
+
+    return workEntities
+        .where((entity) =>
+    entity.scheduleTime.isAfter(startOfMonth) &&
+        entity.scheduleTime.isBefore(endOfMonth))
+        .toList();
+  }
   void getData() async {
     final result = await dbWork.getWorksData();
     var result1 = result.where((e) => e.type == 1).toList();
@@ -66,9 +77,11 @@ class WorkSecondLogic extends GetxController {
         .toList();
     List<WorkEntity> thisWeekEntities = getThisWeekEntities(list.value);
     List<WorkEntity> thisMonthEntities = getThisMonthEntities(list.value);
+    List<WorkEntity> thisYearEntities = getThisYearEntities(list.value);
     threeNumList = [
       todayList.length,
       thisWeekEntities.length,
+      thisMonthEntities.length,
       thisMonthEntities.length
     ];
     update();
